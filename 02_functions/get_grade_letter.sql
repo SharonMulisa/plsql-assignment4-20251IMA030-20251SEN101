@@ -1,0 +1,15 @@
+CREATE OR REPLACE FUNCTION get_grade_letter(p_grade IN NUMBER)
+RETURN VARCHAR2 IS
+BEGIN
+  IF p_grade >= 90 THEN RETURN 'A';
+  ELSIF p_grade >= 80 THEN RETURN 'B';
+  ELSIF p_grade >= 70 THEN RETURN 'C';
+  ELSIF p_grade >= 60 THEN RETURN 'D';
+  ELSIF p_grade >= 50 THEN RETURN 'E';
+  ELSE RETURN 'F';
+  END IF;
+EXCEPTION
+  WHEN OTHERS THEN
+    RETURN 'Invalid';
+END;
+/
